@@ -4,10 +4,10 @@ import numpy as np
 import time
 
 # Page configuration
-st.set_page_config(page_title="startAIgy", layout="wide")
+st.set_page_config(page_title="stratAIgy", layout="wide")
 
 # Home Section
-st.title("StartAIgy")
+st.title("StratAIgy")
 st.write("")
 st.write("")
 st.title("Let AI Help You with Your Business")
