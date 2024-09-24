@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import time
 
 # Page configuration
 st.set_page_config(page_title="startAIgy", layout="wide")
@@ -37,7 +38,20 @@ st.header("Our AI Business Solutions")
 st.subheader("Pricing")
 st.write("Let AI help you set the right price for your product")
 
-# Generate random pricing data
+sample_conversation = [
+    {"user": "Hi there! Can you help me suggest a price?", "AI": "Absolutely! Please provide the values for the product."},
+    {"user": "suggest price for 80 pieces of product A", "AI": "The suggested price for 80 pieces of product A is: $150.00."},
+]
+
+def display_conversation(conversation):
+    # st.markdown("<div style='border: 1px solid white;'></div>", unsafe_allow_html=True)
+    for chat in conversation:
+        st.markdown(f"<div style='background-color: black; padding: 5px; color: white; border-left: 4px solid green; border-right: 1px solid white;'><b>You:</b> {chat['user']}</div>",unsafe_allow_html=True)
+        st.markdown(f"<div style='background-color: black; padding: 5px; color: white; border-left: 4px solid blue; border-right: 1px solid white;'><b>AI Assistant:</b> {chat['AI']}</div>", unsafe_allow_html=True)
+    # st.markdown("<div style='border: 1px solid white;'></div>", unsafe_allow_html=True)
+
+
+# Generate random pricing data for visualization
 np.random.seed(0)
 dates = pd.date_range(start='2024-01-01', periods=30)
 prices = np.random.randint(50, 150, size=30)
@@ -51,7 +65,13 @@ data.set_index('Date', inplace=True)
 # Display the line chart
 st.line_chart(data, use_container_width=True)
 
+# Call the function to display the conversation
+display_conversation(sample_conversation)
+
 # Inventory Management Section
+st.write("")
+st.write("")
+st.write("")
 st.subheader("Inventory Management")
 st.write("Forecast orders including seasonal changes to properly manage your inventory")
 
@@ -87,7 +107,15 @@ customers = pd.DataFrame({
 
 # Display customer locations on a map
 st.map(customers)
-
+st.write("")
+st.write("")
+st.write("")
+st.subheader("Internal Insights")
+st.write("Get insights from your internal data in seconds")
+internal_data = [
+    {"user": "Hi there! Can you please tell me what were my total sales last year with company A?", "AI": "Your total sales with company A last year was $200,000."},
+]
+display_conversation(internal_data)
 # Contact Us Section
 st.title("Contact Us")
 st.write("For inquiries, please reach out:")
@@ -97,6 +125,7 @@ st.write("📧 **Email:** info@startAIgy.com")
 # Footer
 st.markdown("---")
 st.markdown("### © 2024 StartAIgy. All Rights Reserved.")
+
 
 
 
