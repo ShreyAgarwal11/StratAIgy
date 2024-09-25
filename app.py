@@ -120,11 +120,10 @@ display_conversation(internal_data)
 st.title("Contact Us")
 st.write("For inquiries, please reach out:")
 st.write("📞 **Phone Number:** +1 (213) 691-9782")
-st.write("📧 **Email:** info@startAIgy.com")
 
 # Footer
 st.markdown("---")
-st.markdown("### © 2024 StartAIgy. All Rights Reserved.")
+st.markdown("### © 2024 StratAIgy. All Rights Reserved.")
 
 
 
